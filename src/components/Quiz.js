@@ -1,33 +1,39 @@
 import "../App.css";
-import React from 'react'	
+import React, { useContext } from 'react'	
 import { useState } from "react";
 import Questions from "./Questions";
+import { GameStateContext } from "../helper/context";
+
 function Quiz() {
-
-	const [currQuestion, setCurrQuestion]= useState(0);
-	const [option,setOption] =useState("");
-
+	const {currQuestion, setCurrQuestion,score,setScore,gameState, setGameState} = useContext(GameStateContext)
 	const answerClick = (props)=>{
-		setOption(props);
-		setCurrQuestion(curr=>{
-			return curr+1
-		})git 
+		if(Questions[currQuestion].answer===props){
+			setScore((curr)=> curr+1)
+		}
+		if(currQuestion===Questions.length-1){
+			setGameState("completed")
+		}else{
+			setCurrQuestion(curr=>{
+				return curr+1
+			})
+		}
 	}
-  return (
-    <div>
-   	 <h2>
+  	return (
+  	  <div>
+		<h2>
 		Playing mode
-    	</h2>
-	<h3>
+		</h2>
+		<h3>
 		{Questions[currQuestion].prompt}
-	</h3>
+		</h3>
 	<div className="question">
 		<button className="quesButton" onClick={()=>answerClick("optionA")}>{Questions[currQuestion].optionA}</button>
 		<button className="quesButton" onClick={()=>answerClick("optionB")}>{Questions[currQuestion].optionB}</button>
 		<button className="quesButton" onClick={()=>answerClick("optionC")}>{Questions[currQuestion].optionC}</button>
 		<button className="quesButton" onClick={()=>answerClick("optionD")}>{Questions[currQuestion].optionD}</button>
 	</div>
-	{option}
+	
+		<button className="quesButton" onClick={()=> setCurrQuestion((curr)=>curr+1)}>Skip Question</button>
     </div>
   )
 }
