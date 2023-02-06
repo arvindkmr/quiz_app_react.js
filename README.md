@@ -4,3 +4,5 @@
 Deployed project : 
 
 State-management 
+Component based structured
+User Interaction
