@@ -11,7 +11,7 @@ const {score,userName, setGameState, setCurrQuestion} = useContext(GameStateCont
     <div>
     <h3>Hey {userName}, you scored</h3>
     <h2>{score}</h2><span>out of</span> <h2>{Questions.length}</h2>
-    <button onClick={()=> reset()}> Reset Quiz</button>
+    <button onClick={()=> reset()}> Try again</button>
     </div>
   )
 }
