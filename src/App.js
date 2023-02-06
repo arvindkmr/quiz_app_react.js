@@ -9,6 +9,7 @@ function App() {
   const [userName,setUserName] = useState("");
   const [currQuestion, setCurrQuestion]= useState(0);
 	const [score,setScore] =useState(0);
+	
   return (
     <div className="app">
       <div className="mainContainer">
