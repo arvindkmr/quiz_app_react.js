@@ -2,7 +2,7 @@ import React from 'react';
 import { useContext } from 'react';
 import { GameStateContext } from '../helper/context';
 function Menu(props) {
-	const {gameState, setGameState,userName, setUserName} = useContext(GameStateContext)
+	const {setGameState, setUserName} = useContext(GameStateContext)
 	return (
 	<div>
 		Quiz App

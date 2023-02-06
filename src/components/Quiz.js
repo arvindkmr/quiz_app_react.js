@@ -1,11 +1,10 @@
 import "../App.css";
 import React, { useContext } from 'react'	
-import { useState } from "react";
 import Questions from "./Questions";
 import { GameStateContext } from "../helper/context";
 
 function Quiz() {
-	const {currQuestion, setCurrQuestion,score,setScore,gameState, setGameState} = useContext(GameStateContext)
+	const {currQuestion, setCurrQuestion,setScore, setGameState} = useContext(GameStateContext)
 	const answerClick = (props)=>{
 		if(Questions[currQuestion].answer===props){
 			setScore((curr)=> curr+1)

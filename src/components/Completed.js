@@ -2,7 +2,7 @@ import React,{useContext} from 'react'
 import { GameStateContext } from "../helper/context";
 import Questions from './Questions';
 function Completed() {
-const {score,setScore,gameState,userName, setGameState,currQuestion, setCurrQuestion} = useContext(GameStateContext)
+const {score,userName, setGameState, setCurrQuestion} = useContext(GameStateContext)
 	const reset=()=>{
 		setCurrQuestion(0)
 		setGameState("start")
